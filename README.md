@@ -18,10 +18,14 @@ O labirinto é carregado de um arquivo `.txt` e armazenado em uma matriz de cara
 ## Estrutura do projeto
 
 ```
-.
-├── Main.java        # Ponto de entrada: carrega, resolve e imprime o labirinto
-├── Labirinto.java   # Leitura do arquivo, algoritmo de busca e impressão
-└── labirinto.txt    # Labirinto de exemplo
+labirinto/
+├── src/
+│   ├── Main.java        # Ponto de entrada: carrega, resolve e imprime o labirinto
+│   └── Labirinto.java   # Leitura do arquivo, algoritmo de busca e impressão
+├── resources/
+│   └── labirinto.txt    # Labirinto de exemplo
+├── .gitignore           # Ignora arquivos compilados (out/, *.class)
+└── README.md
 ```
 
 ### Principais métodos de `Labirinto`
@@ -34,15 +38,19 @@ O labirinto é carregado de um arquivo `.txt` e armazenado em uma matriz de cara
 
 **Pré-requisito:** JDK 8 ou superior instalado.
 
-```bash
-# Compilar
-javac Main.java Labirinto.java
+Na raiz do projeto:
 
-# Executar (o arquivo labirinto.txt deve estar na pasta atual)
-java Main
+```bash
+# Compilar (os arquivos .class são gerados na pasta out/)
+javac -d out src/*.java
+
+# Executar
+java -cp out Main
 ```
 
-## Exemplo de entrada (`labirinto.txt`)
+> O programa lê o arquivo `resources/labirinto.txt`, então execute sempre a partir da raiz do projeto.
+
+## Exemplo de entrada (`resources/labirinto.txt`)
 
 ```
  XXXXXXXXXX   XXXXXX
@@ -58,6 +66,10 @@ XXXXXX X XXXXXX XXXD
 ## Saída esperada
 
 Se houver caminho, o programa imprime o labirinto original, a mensagem `Existe uma saída do labirinto!` e o labirinto com o trajeto marcado com `+`. Caso contrário, imprime `Labirinto sem saída!`.
+
+## Testando outros labirintos
+
+Para testar outros cenários, crie novos arquivos `.txt` em `resources/` seguindo a legenda acima e ajuste o caminho passado a `criaLabirinto(...)` em `Main.java`.
 
 ## Observações
 

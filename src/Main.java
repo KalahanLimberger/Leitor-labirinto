@@ -5,7 +5,7 @@ public class Main {
         Labirinto labirinto = new Labirinto();
 
         try {
-            labirinto.criaLabirinto("labirinto.txt");
+            labirinto.criaLabirinto("resources/labirinto.txt");
             System.out.println("Imprimindo labirinto:");
             labirinto.imprimeLabirinto();
 
